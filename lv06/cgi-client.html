@@ -1,0 +1,22 @@
+<html>
+
+  <head>
+  </head>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function() {
+          //todo handle errors
+            if(xhr.readyState === 4) { // done
+                if(xhr.status === 200) { // complete  
+                      console.log(JSON.parse(xhr.responseText));
+                    }
+              }
+
+      };
+
+      xhr.open("GET", "http://localhost:8080/cgi/cgi-bin/todo-api");
+      xhr.send();
+    </script>
+</html>

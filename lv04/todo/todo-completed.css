@@ -1,0 +1,78 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #EEEEEE;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+    background: white;
+    width: 500px;
+    margin:0px auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+#container ul {
+    list-style: none;
+    padding: 0;
+}
+
+#container h1 {
+    text-align: center;
+}
+
+#container #newItem {
+    width: 80%;
+    border: none;
+    border-bottom: solid 1px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#container #addNew {
+    background: #21AB48;
+    border: none;
+    padding: 10px;
+    color: white;
+    width: 15%;
+    font-size: 18px;
+}
+
+#container .item {
+    clear: both;
+    border-bottom: solid 1px #EFEFEF;
+    padding: 10px;
+}
+
+#container .item.hidden {
+    display: none;
+}
+
+#container .item .itemStatus {
+    display: block;
+    float: left;
+}
+
+#container .item .itemText {
+    float: left;
+    width: 90%;
+    padding-left: 5px;
+}
+
+#container .item .itemText.itemDone {
+    text-decoration: line-through;
+    color: silver;
+}
+
+#container .item .deleteItem {
+    font-weight: bold;
+    color: gray;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#container .filter {
+    color:lightslategray;
+}

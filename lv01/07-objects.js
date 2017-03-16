@@ -1,18 +1,24 @@
 /**
- * Objects
+ * Objects (literals, factories, constructors)
  */
 
-//add methods
+// Object literal
 
-var user = {
-    name: 'John',
-    age: 23,
-    email: 'john@example.com'
+var Person = {
+    firstName: 'John',
+    lastName: 'Smith',
+    email: 'john.smith@fet.ba',
+    getFullName : function () {
+        return this.firstName + ' ' + this.lastName;
+    },
+    'date of birth': new Date('02/03/1984')
 };
 
-var e = 'email';
-
-console.log(user);
-console.log(user.age);
-console.log(user.relatives);
-console.log(user[e]);
+// dot notation
+console.log(Person.firstName);
+// 'static' method call
+console.log(Person.getFullName());
+//undefined
+console.log(Person.relatives);
+// string with spaces
+console.log(Person['date of birth']);

@@ -42,3 +42,28 @@ var fn3 = function () {
 }
 
 fn3();
+
+var a = 10;
+
+if (true) {
+    var b = 11;
+}
+
+(function() {
+
+    var c = 12;
+    d = 13;
+
+    try {
+        console.log(a, b, c, d);
+    } catch(e) {
+        console.log(e);
+    }
+
+})();
+
+try {
+    console.log(a, b, c, d);
+} catch(e) {
+    console.log(e);
+}

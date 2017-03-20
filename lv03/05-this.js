@@ -21,7 +21,7 @@ Counter.prototype.start = function () {
 
 Counter.prototype.display = function () {
     console.log(this.value);
-}
+};
 
 Counter.prototype.stop = function () {
     clearInterval(this.id);

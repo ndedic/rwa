@@ -1,17 +1,17 @@
 function StringJoiner(separator) {
-    var joiner = [];
-    this.join = function (str) {
-        joiner.push(str);
+    var items = [];
+    this.add = function (str) {
+        items.push(str);
     };
     this.toString = function () {
-        return joiner.join(separator);
+        return items.join(separator);
     };
 }
 
 var sj = new StringJoiner(',');
 
-sj.join('one');
-sj.join('two');
-sj.join('three');
+sj.add('one');
+sj.add('two');
+sj.add('three');
 
 console.log( sj.toString() );

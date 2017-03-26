@@ -1,0 +1,76 @@
+<!doctype html>
+
+    <head>
+      <style>
+        .itemDone {
+          text-decoration: line-through;
+        }
+      </style>
+    </head>
+    <body>
+        <input id="newItem"/>
+        <input id="addNew" type="button" value="Add"/>
+        <div id="items"></div>
+
+        <script>
+          
+          var addNew = document.getElementById('addNew');
+          var newItem = document.getElementById('newItem');
+          var items = document.getElementById('items');
+          var todoList = [
+              { text: 'Todo item 1', checked: false },
+              { text: 'Todo item 2', checked: true },
+              { text: 'Todo item 3', checked: true }
+          ];
+
+          function init(todoList) {          
+              todoList
+                .map(function (e, i) {
+                  items.appendChild( createItem(e.text, e.checked));
+                });
+          }
+
+          function createItem(text, checked) {
+
+              var item = document.createElement('div');
+              var value = newItem.value;
+              var status = checked ? "checked" : "";
+              var html = '<div class="item">' +
+                '<input class="itemStatus" type="checkbox"' + status + '/>' +
+                '<span>' + text + '</span>' +
+                '<input class="deleteItem" type="button" value="Delete"/>' + 
+                '</div>';
+          
+              item.innerHTML = html;   
+
+              item.querySelector('.deleteItem').addEventListener('click', function () {
+                  item.remove();
+              });
+
+              item.querySelector('.itemStatus').addEventListener('click', function() {         
+                  checkStatus(this);
+              });
+
+              function checkStatus(checkBox) {                
+                  var span = item.querySelector('span');                  
+                  checkBox.checked 
+                    ? span.classList.add('itemDone')
+                    : span.classList.remove('itemDone');
+              }
+
+              checkStatus(item.querySelector('.itemStatus'));
+
+              return item;      
+          }
+
+          addNew.addEventListener('click', function () {
+              var value = newItem.value;
+              var item = createItem(value, false);
+              items.appendChild(item);
+          }); 
+
+          init(todoList);
+
+        </script>
+    </body>
+</html>

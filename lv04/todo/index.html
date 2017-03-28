@@ -10,13 +10,16 @@
     <body>
         <input id="newItem"/>
         <input id="addNew" type="button" value="Add"/>
+        <input id="filter" type="button" value="Filter done"/>
         <div id="items"></div>
 
         <script>
           
           var addNew = document.getElementById('addNew');
           var newItem = document.getElementById('newItem');
+          var filter = document.getElementById('filter');    
           var items = document.getElementById('items');
+
           var todoList = [
               { text: 'Todo item 1', checked: false },
               { text: 'Todo item 2', checked: true },
@@ -65,9 +68,23 @@
 
           addNew.addEventListener('click', function () {
               var value = newItem.value;
+              if (!value.length) {
+                  console.log('Can not add an empty item');
+                  return;
+              }
               var item = createItem(value, false);
               items.appendChild(item);
           }); 
+
+          filter.addEventListener('click', function () {              
+                var nodes = items.querySelectorAll('.item');
+                for (var i = 0; i < nodes.length; i++) {
+                    var cb = nodes[i].querySelector('.itemStatus');
+                    if (cb.checked) {
+                        console.log('div item contains checked check box');
+                    }
+                }
+          });
 
           init(todoList);
 

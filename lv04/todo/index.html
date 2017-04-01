@@ -2,22 +2,37 @@
 
     <head>
       <style>
-        .itemDone {
+        #items .itemDone {
           text-decoration: line-through;
+        }
+
+        ul#items {
+            list-style: none outside none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #items .item.hidden {
+            display: none;
         }
       </style>
     </head>
     <body>
         <input id="newItem"/>
         <input id="addNew" type="button" value="Add"/>
-        <input id="filter" type="button" value="Filter done"/>
-        <div id="items"></div>
-
+       
+        <ul id="items"></ul>
+        <br/>
+        <input id="completed" type="button" value="Completed"/>
+        <input id="active" type="button" value="Active"/>
+        <input id="all" type="button" value="All"/>
         <script>
           
           var addNew = document.getElementById('addNew');
           var newItem = document.getElementById('newItem');
-          var filter = document.getElementById('filter');    
+          var completed = document.getElementById('completed');    
+          var active = document.getElementById('active');    
+          var all = document.getElementById('all');    
           var items = document.getElementById('items');
 
           var todoList = [
@@ -35,7 +50,7 @@
 
           function createItem(text, checked) {
 
-              var item = document.createElement('div');
+              var item = document.createElement('li');
               var value = newItem.value;
               var status = checked ? "checked" : "";
               var html = '<div class="item">' +
@@ -76,15 +91,41 @@
               items.appendChild(item);
           }); 
 
-          filter.addEventListener('click', function () {              
+          completed.addEventListener('click', function () {              
+                walkItems(function (item) {
+                    var cb = item.querySelector('.itemStatus');
+                    item.classList.remove('hidden')
+                    if (!cb.checked) {
+                        item.classList.add('hidden');
+                    } 
+                });      
+          });
+
+          active.addEventListener('click', function () {
+                walkItems(function (item) {
+                    var cb = item.querySelector('.itemStatus');
+                    item.classList.remove('hidden');
+                    if (cb.checked) {
+                        item.classList.add('hidden');
+                    }
+                });                
+          });
+
+          all.addEventListener('click', function () {
+                walkItems(function (item) {
+                    item.classList.remove('hidden');
+                });
+          });          
+
+          function walkItems(callback) {
                 var nodes = items.querySelectorAll('.item');
                 for (var i = 0; i < nodes.length; i++) {
-                    var cb = nodes[i].querySelector('.itemStatus');
-                    if (cb.checked) {
-                        console.log('div item contains checked check box');
+                    var node = nodes[i];
+                    if (typeof callback === 'function') {
+                        callback(node);
                     }
-                }
-          });
+                }              
+          }
 
           init(todoList);
 

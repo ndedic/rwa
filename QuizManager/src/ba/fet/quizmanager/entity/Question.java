@@ -5,6 +5,9 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,16 +31,15 @@ public class Question {
 	@Column(name = "text")
 	private String text;
 
-	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+	@Column(name = "explanation")
+	private String explanation;
+	
+	@Enumerated(EnumType.STRING)
+	private ChoiceType choiceType;
+	
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@JoinColumn(name = "question_id", referencedColumnName = "id")
 	private Set<Answer> answers;
-
-	@OneToOne
-	@JoinColumn(name = "correct_answer_id")
-	private Answer correctAnswer;
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "quiz_id")
-	private Quiz quiz;
 
 	public Question() {
 
@@ -62,20 +64,20 @@ public class Question {
 	public void setAnswers(Set<Answer> answers) {
 		this.answers = answers;
 	}
-
-	public Answer getCorrectAnswer() {
-		return correctAnswer;
+	
+	public String getExplanation() {
+		return explanation;
 	}
 
-	public void setCorrectAnswer(Answer correctAnswer) {
-		this.correctAnswer = correctAnswer;
+	public void setExplanation(String explanation) {
+		this.explanation = explanation;
 	}
 
-	public Quiz getQuiz() {
-		return quiz;
+	public ChoiceType getChoiceType() {
+		return choiceType;
 	}
 
-	public void setQuiz(Quiz quiz) {
-		this.quiz = quiz;
-	}
+	public void setChoiceType(ChoiceType choiceType) {
+		this.choiceType = choiceType;
+	}	
 }

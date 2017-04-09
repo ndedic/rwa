@@ -17,7 +17,7 @@ import ba.fet.quizmanager.service.QuizService;
 /**
  * Servlet implementation class HomeServlet
  */
-@WebServlet(description = "This is a home servlet", urlPatterns = { "/HomeServlet" })
+@WebServlet(description = "This is a home servlet", urlPatterns = { "/api/quizzes" })
 public class QuizApiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private QuizService qd;

@@ -22,10 +22,9 @@ public class Answer {
 	@Column(name = "text")
 	private String text;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "question_id")
-	private Question question;
-
+	@Column(name = "is_correct")
+	private Boolean isCorrect;
+	
 	public Answer() {
 
 	}
@@ -41,12 +40,12 @@ public class Answer {
 	public void setText(String text) {
 		this.text = text;
 	}
-
-	public Question getQuestion() {
-		return question;
+	
+	public void setIsCorrect(Boolean isCorrect) {
+		this.isCorrect = isCorrect;
 	}
-
-	public void setQuesion(Question quesion) {
-		this.question = quesion;
+	
+	public Boolean getIsCorrect() {
+		return this.isCorrect;
 	}
 }

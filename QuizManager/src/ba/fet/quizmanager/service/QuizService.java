@@ -15,7 +15,9 @@ final public class QuizService extends AbstractService {
 	public List<Quiz> findAll() {
 		EntityManager em = createEntityManager();
 		Query q = em.createQuery("SELECT q FROM Quiz q");
-		return q.getResultList();
+		List<Quiz> resultList = q.getResultList();
+		em.close();
+		return resultList;
 	}
 	
 	public void save(Quiz quiz) {

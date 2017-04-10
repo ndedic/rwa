@@ -50,25 +50,30 @@ void printHeader() {
 
 void printBody(TodoItemList list)
 {
-	int i;
+	  int i;
     putchar('[');
     for(i = 0; i < list.size; i++)
     {
         TodoItem item = list.items[i];
         char *checked;
 
-        if (item.checked) {
+        if (item.checked) 
+        {
             checked = "true";
-        } else {
+        } 
+        else 
+        {
             checked = "false";
         }
+        
         putchar('{');
         printf("\"text\":\"%s\"", item.text);
         putchar(',');
         printf("\"checked\":%s", checked);
-		putchar('}');
+		    putchar('}');
 
-        if (i != list.size - 1) {
+        if (i != list.size - 1) 
+        {
             putchar(',');
         }
     }

@@ -1,0 +1,13 @@
+#container ul {
+    list-style: none;
+    padding: 0;
+}
+
+#container .item.hidden {
+    display: none;
+}
+
+#container .item .itemText.itemDone {
+    text-decoration: line-through;
+    color: silver;
+}

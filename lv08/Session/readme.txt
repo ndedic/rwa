@@ -1,0 +1,1 @@
+- implement the same functionality as with the 'Cookies' example, using HttpSession this time

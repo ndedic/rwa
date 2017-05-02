@@ -35,10 +35,8 @@ public class HelloCookie extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		// get request cookies
-		// check if there are relevant cookies
-		
-		
-		// if cookies have been set display cookies content,
+		// check if there are relevant cookies set
+		// if cookies have been set, display cookies content
 		// else display form as per below
 		
 		out.println("<head><title>Hello cookie</title></head>");
@@ -57,7 +55,7 @@ public class HelloCookie extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		// read request parameters and save as cookies
+		// read request parameters and set as response as cookies
 	}
 
 }

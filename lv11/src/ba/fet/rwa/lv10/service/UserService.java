@@ -27,7 +27,6 @@ public class UserService {
 		return userDao.findByUsername(username);
 	}
 	
-
 	public User authenticate(String username, String password) {
 		
 		User user = findByUsername(username);
@@ -37,6 +36,7 @@ public class UserService {
 		}
 		
 		if (SecurityUtil.checkPassword(password, user.getPassword())) {
+			user.setPassword("");
 			return user;
 		}
 		

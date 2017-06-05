@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd /opt
+
+# Download Gson
+curl -O https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.0/gson-2.8.0.jar
+curl -O http://repo1.maven.org/maven2/de/svenkubiak/jBCrypt/0.4/jBCrypt-0.4.jar
+
+# Copy Tomcat dependencies
+TOMCAT_LIB=/opt/apache-tomcat-8.0.33/lib/
+cp /opt/eclipselink/jlib/eclipselink.jar $TOMCAT_LIB
+cp /opt/eclipselink/jlib/jpa/javax.persistence_2.1.1.v201509150925.jar $TOMCAT_LIB
+cp /opt/db-derby-10.12.1.1-bin/lib/derbyclient.jar $TOMCAT_LIB
+mv gson-2.8.0.jar $TOMCAT_LIB
+mv jBCrypt-0.4.jar $TOMCAT_LIB
+
+# Start Derby server
+# cd /opt/db-derby-10.12.1.1-bin/bin/ && ./startNetworkServer &
+# cd /opt/eclipse && ./eclipse &

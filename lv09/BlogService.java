@@ -13,6 +13,7 @@ public class BlogService {
 		
 	}
 	
+	// unsave, don't try this at home
 	public static BlogService getInstance() {
 		if (instance != null) {
 			return instance;

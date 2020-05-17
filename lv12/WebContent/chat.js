@@ -75,11 +75,16 @@ function createChatClient(params) {
         client.send(JSON.stringify(message));
         displayMessage(message);
     }
+    
+    function pad(val) {
+    	var str = val.toString();
+    	return str.length == 1 ? "0"+str : str;
+    }
  
     function displayMessage(message) {
     	var date = new Date();
-    	var time = date.getHours() + ":" + date.getMinutes();
-    	var msgTxt = "<b>" + message.username + "</b> " + (time.length == 1 ? "0"+time : time) + "<br/>";
+    	var time = pad(date.getHours()) + ":" + pad(date.getMinutes());
+    	var msgTxt = "<b>" + message.username + "</b> " + time + "<br/>";
     	msgTxt += message.text;
     	msgTxt += "<br/>";
         elements.conversation.innerHTML += msgTxt;

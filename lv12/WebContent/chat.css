@@ -1,0 +1,38 @@
+body {
+	
+}
+
+#chat-container {
+	display: none;
+	font-family: monospace;
+	font-size: 15px;
+	margin: 0px auto;
+	width: 50%;	
+}
+
+#chat-container #status {
+	padding: 20px;
+	text-align: center;
+		
+}
+
+#chat-container #conversation {
+	margin: 0px auto;
+	height: 100px;
+	background: #efefef;
+	padding: 20px;
+	overflow: auto;
+	display: block;	
+}
+
+#chat-container #message #text {
+	float: left;
+	width: 85%;
+	padding: 5px;
+}
+
+#chat-container #message #send {
+	float: right;
+	width: 15%;
+	padding: 5px;
+}

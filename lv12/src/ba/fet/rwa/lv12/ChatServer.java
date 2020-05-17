@@ -3,6 +3,8 @@ package ba.fet.rwa.lv12;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.EncodeException;
 import javax.websocket.OnClose;
@@ -17,7 +19,7 @@ import javax.websocket.server.ServerEndpoint;
 		encoders = MessageEncoder.class )
 public class ChatServer {
 
-	private static List<Session> sessions = new ArrayList<Session>();
+	private final static Set<Session> sessions =  new CopyOnWriteArraySet<Session>();
 	
 	@OnOpen
     public void onOpen(

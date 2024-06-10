@@ -4,7 +4,7 @@ cd /opt
 
 # Download Gson
 curl -O https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.0/gson-2.8.0.jar
-curl -O http://repo1.maven.org/maven2/de/svenkubiak/jBCrypt/0.4/jBCrypt-0.4.jar
+curl -O https://repo1.maven.org/maven2/de/svenkubiak/jBCrypt/0.4/jBCrypt-0.4.jar
 
 # Copy Tomcat dependencies
 TOMCAT_LIB=/opt/apache-tomcat-8.0.33/lib/

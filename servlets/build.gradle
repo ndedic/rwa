@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.gretty' version '4.1.6'
+}
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_23
+    targetCompatibility = JavaVersion.VERSION_23
+}
+
+dependencies {
+    // Jakarta Servlet API for Tomcat 10
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+    
+    // Jakarta JSTL for JSP support
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0'
+    
+    // Tomcat 10 dependencies
+    implementation 'org.apache.tomcat:tomcat-catalina:10.1.19'
+    implementation 'org.apache.tomcat:tomcat-jasper:10.1.19'
+    
+    // Gson for JSON serialization
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+gretty {
+    contextPath = '/'
+    servletContainer = 'tomcat10'
+    httpPort = 8080
+    // Removed the unsupported logbackConfigFile property
+}

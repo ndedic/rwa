@@ -132,22 +132,5 @@ public class HelloCookieServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// read request parameters and set as response as cookies
-        String name = request.getParameter("name");
-        String colour = request.getParameter("colour");
-        
-        if (name != null && !name.isEmpty()) {
-            Cookie nameCookie = new Cookie("name", name);
-            nameCookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
-            response.addCookie(nameCookie);
-        }
-        
-        if (colour != null && !colour.isEmpty()) {
-            Cookie colourCookie = new Cookie("colour", colour);
-            colourCookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
-            response.addCookie(colourCookie);
-        }
-        
-        // Redirect back to the GET handler
-        response.sendRedirect("/HelloCookie");
 	}
 }

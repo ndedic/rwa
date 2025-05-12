@@ -132,11 +132,5 @@ public class HelloSessionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// read request parameters and set as session attributes
-        HttpSession session = request.getSession();
-        session.setAttribute("name", request.getParameter("name"));
-        session.setAttribute("colour", request.getParameter("colour"));
-        
-        // Redirect back to the GET handler
-        response.sendRedirect("/HelloSession");
 	}
 }

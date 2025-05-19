@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.gretty' version '4.1.1'  // For Tomcat deployment
+    id 'application'  // For CLI application
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = '23'
+    targetCompatibility = '23'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Jakarta EE 10 API
+    compileOnly 'jakarta.platform:jakarta.jakartaee-api:10.0.0'
+    
+    // Hibernate Core
+    implementation 'org.hibernate.orm:hibernate-core:6.4.0.Final'
+    
+    // Jakarta Servlet API for Tomcat 10
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    implementation 'jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.1'
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+    
+    // MySQL Connector
+    implementation 'com.mysql:mysql-connector-j:8.2.0'
+    
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+gretty {
+    servletContainer = 'tomcat10'
+    contextPath = '/blog'
+    httpPort = 8080
+}
+
+war {
+    archiveFileName = 'blog.war'
+}
+
+// CLI application configuration
+application {
+    mainClass = 'com.example.blog.cli.BlogDataGenerator'
+}
+
+// Task to run the data generator
+task generateBlogData(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.example.blog.cli.BlogDataGenerator'
+    description = 'Generate sample blog entries'
+    group = 'application'
+}

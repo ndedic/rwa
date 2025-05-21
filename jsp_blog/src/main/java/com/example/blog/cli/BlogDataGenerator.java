@@ -2,6 +2,7 @@ package com.example.blog.cli;
 
 import com.example.blog.model.BlogEntry;
 import com.example.blog.service.BlogService;
+import com.example.blog.util.JPAUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +38,9 @@ public class BlogDataGenerator {
     private static final Random random = new Random();
     
     public static void main(String[] args) {
+
+        Runtime.getRuntime().addShutdownHook(new Thread(JPAUtil::shutdown));
+
         BlogService blogService = new BlogService();
         
         System.out.println("Starting to generate 10 random blog entries...");

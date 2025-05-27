@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+h1 {
+    color: #333;
+}
+.blog-entry {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.blog-title {
+    margin-top: 0;
+    color: #2c3e50;
+}
+.blog-date {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+.blog-content {
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+.create-btn, .back-btn, .btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+}
+.btn-cancel {
+    background-color: #95a5a6;
+    margin-left: 10px;
+}
+.read-more {
+    color: #3498db;
+    text-decoration: none;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+textarea {
+    height: 300px;
+    resize: vertical;
+}
+.error {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}

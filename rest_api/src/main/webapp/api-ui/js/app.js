@@ -11,7 +11,16 @@ class BlogApp {
     this.currentBlogId = null;
     
     this.initEventListeners();
-    this.loadInitialData();
+  }
+  
+  /**
+   * Factory method to create and initialize a BlogApp instance
+   * @returns {Promise<BlogApp>} Fully initialized BlogApp instance
+   */
+  static async create() {
+    const app = new BlogApp();
+    await app.loadInitialData();
+    return app;
   }
 
   /**
@@ -194,6 +203,6 @@ class BlogApp {
 }
 
 // Initialize the application when the DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  new BlogApp();
+document.addEventListener('DOMContentLoaded', async () => {
+  const app = await BlogApp.create();
 });

@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.gretty' version '4.1.1'
+}
+
+group = 'ba.fet.rwa'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_21 // Using JDK 21 as JDK 23 is not yet widely available
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Jakarta EE 10 APIs for Tomcat 10
+    implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    implementation 'jakarta.websocket:jakarta.websocket-api:2.1.1'
+    implementation 'jakarta.websocket:jakarta.websocket-client-api:2.1.1'
+    
+    // Gson for JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // Tomcat WebSocket implementation
+    implementation 'org.apache.tomcat:tomcat-websocket:10.1.19'
+    
+    // Test dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
+}
+
+gretty {
+    httpPort = 8080
+    contextPath = '/websockets'
+    servletContainer = 'tomcat10'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

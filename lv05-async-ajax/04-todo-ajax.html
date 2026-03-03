@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <title>LV05 — Todo AJAX</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
+    .todo { padding: 8px 12px; border-bottom: 1px solid #eee; }
+    .todo.done { text-decoration: line-through; color: #999; }
+    #status { color: #666; font-style: italic; margin: 12px 0; }
+    #error { color: #e74c3c; }
+  </style>
+</head>
+<body>
+
+  <h1>Todo List (from API)</h1>
+  <p>Fetches todos from <code>server.js</code> and renders them using DOM manipulation.</p>
+  <p id="status">Loading...</p>
+  <p id="error"></p>
+  <div id="list"></div>
+
+  <script>
+    const list = document.getElementById('list');
+    const status = document.getElementById('status');
+    const error = document.getElementById('error');
+
+    async function loadTodos() {
+        try {
+            const response = await fetch('http://localhost:3001/api/todos');
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const todos = await response.json();
+            status.textContent = `Loaded ${todos.length} todos`;
+
+            todos.forEach(todo => {
+                const div = document.createElement('div');
+                div.className = 'todo' + (todo.checked ? ' done' : '');
+                div.textContent = todo.text;
+                list.appendChild(div);
+            });
+        } catch (err) {
+            status.textContent = '';
+            error.textContent = `Failed to load: ${err.message}. Is server.js running? (npm run server)`;
+        }
+    }
+
+    loadTodos();
+  </script>
+
+</body>
+</html>

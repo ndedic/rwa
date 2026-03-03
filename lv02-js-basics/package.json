@@ -1,0 +1,17 @@
+{
+  "name": "lv02-js-basics",
+  "private": true,
+  "scripts": {
+    "assignment": "node 00-assignment.js",
+    "types": "node 01-types.js",
+    "arrays": "node 02-arrays.js",
+    "functions": "node 03-functions.js",
+    "nested": "node 04-nested-functions.js",
+    "higher-order": "node 05-higher-order-functions.js",
+    "hoisting": "node 06-hoisting.js",
+    "scope": "node 07-scope.js",
+    "objects": "node 08-objects.js",
+    "let-const": "node 09-let-const.js",
+    "for-in-of": "node 10-for-in-of.js"
+  }
+}

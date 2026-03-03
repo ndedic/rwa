@@ -1,0 +1,7 @@
+{
+  "name": "lv01-html-css",
+  "private": true,
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

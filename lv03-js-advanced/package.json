@@ -1,0 +1,19 @@
+{
+  "name": "lv03-js-advanced",
+  "private": true,
+  "scripts": {
+    "assignment": "node 00-assignment.js",
+    "factory": "node 01-factory.js",
+    "constructor": "node 02-constructor.js",
+    "prototype": "node 03-constructor-prototype.js",
+    "object-create": "node 04-builtin-object-constructor.js",
+    "this": "node 05-this.js",
+    "this-bind": "node 05a-this.js",
+    "call-apply-bind": "node 06-call-apply-bind.js",
+    "inheritance": "node 07-inheritance.js",
+    "inheritance-es6": "node 07-inheritance-updated.js",
+    "closure": "node 08-closure.js",
+    "cplx": "node 09-cplx-prototype.js",
+    "es6": "node 10-es6plus-primer.js"
+  }
+}

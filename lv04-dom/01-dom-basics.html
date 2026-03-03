@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <title>LV04 — DOM Basics</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; }
+    .example { background: #f5f5f5; border-left: 4px solid #2980b9; padding: 12px 16px; margin: 20px 0; }
+    .output { background: #e8f5e9; padding: 8px 12px; margin: 8px 0; font-family: monospace; }
+  </style>
+</head>
+<body>
+
+  <h1>DOM Basics — Node Traversal</h1>
+
+  <div class="example">
+    <h3>childNodes vs children</h3>
+    <p><code>childNodes</code> includes text nodes (whitespace). <code>children</code> includes only element nodes.</p>
+  </div>
+
+  <div id="parent">
+    <p id="first">First paragraph</p>
+    <p id="second">Second paragraph</p>
+    <p id="third">Third paragraph</p>
+  </div>
+
+  <div class="output" id="output1"></div>
+
+  <div class="example">
+    <h3>Navigating the tree</h3>
+    <p><code>parentNode</code>, <code>firstElementChild</code>, <code>lastElementChild</code>,
+    <code>nextElementSibling</code>, <code>previousElementSibling</code></p>
+  </div>
+
+  <div class="output" id="output2"></div>
+
+  <div class="example">
+    <h3>Creating and removing nodes</h3>
+    <p><code>createElement</code>, <code>appendChild</code>, <code>removeChild</code>, <code>insertBefore</code></p>
+  </div>
+
+  <ul id="dynamic-list">
+    <li>Original item</li>
+  </ul>
+
+  <div class="output" id="output3"></div>
+
+  <script>
+    // --- childNodes vs children ---
+    const parent = document.getElementById('parent');
+    const out1 = document.getElementById('output1');
+
+    out1.innerHTML =
+      'childNodes.length: ' + parent.childNodes.length +
+      ' (includes text nodes)<br>' +
+      'children.length: ' + parent.children.length +
+      ' (elements only)';
+
+    // --- Tree navigation ---
+    const second = document.getElementById('second');
+    const out2 = document.getElementById('output2');
+
+    out2.innerHTML =
+      'second.parentNode.id: ' + second.parentNode.id + '<br>' +
+      'second.nextElementSibling.id: ' + second.nextElementSibling.id + '<br>' +
+      'second.previousElementSibling.id: ' + second.previousElementSibling.id + '<br>' +
+      'parent.firstElementChild.id: ' + parent.firstElementChild.id + '<br>' +
+      'parent.lastElementChild.id: ' + parent.lastElementChild.id;
+
+    // --- Creating and removing nodes ---
+    const list = document.getElementById('dynamic-list');
+    const out3 = document.getElementById('output3');
+
+    // createElement + appendChild
+    const newItem = document.createElement('li');
+    newItem.textContent = 'Added with appendChild';
+    list.appendChild(newItem);
+
+    // insertBefore
+    const insertedItem = document.createElement('li');
+    insertedItem.textContent = 'Inserted before last';
+    list.insertBefore(insertedItem, list.lastElementChild);
+
+    out3.textContent = 'List now has ' + list.children.length + ' items';
+  </script>
+
+</body>
+</html>

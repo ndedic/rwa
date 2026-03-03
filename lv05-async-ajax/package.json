@@ -1,0 +1,11 @@
+{
+  "name": "lv05-async-ajax",
+  "private": true,
+  "scripts": {
+    "assignment": "node 00-assignment.js",
+    "async-basics": "node 01-async-basics.js",
+    "callbacks-promises": "node 02-callbacks-promises.js",
+    "server": "node server.js",
+    "start": "npx serve ."
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <title>LV04 — Assignment: DOM Traversal</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
+    .task { background: #f5f5f5; border-left: 4px solid #666; padding: 12px 16px; margin: 20px 0 8px; }
+    #result { background: #e8f5e9; padding: 12px; margin-top: 20px; min-height: 40px; }
+  </style>
+</head>
+<body>
+
+  <h1>DOM Traversal — Assignment</h1>
+
+  <ul id="list">
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+    <li>Fourth item</li>
+    <li>Fifth item</li>
+  </ul>
+
+  <div id="result"></div>
+
+  <div class="task">
+    <strong>Task 1:</strong> Get the <code>&lt;ul&gt;</code> by ID. Log <code>childNodes.length</code>
+    vs <code>children.length</code> to the console. Why are they different?
+  </div>
+
+  <div class="task">
+    <strong>Task 2:</strong> Change the text of the third <code>&lt;li&gt;</code> to
+    "Modified by JavaScript" using <code>children[2].textContent</code>.
+  </div>
+
+  <div class="task">
+    <strong>Task 3:</strong> Create a new <code>&lt;li&gt;</code> with text "Added by JavaScript"
+    using <code>document.createElement</code> + <code>appendChild</code>.
+  </div>
+
+  <script>
+    // Write your code here:
+
+  </script>
+
+</body>
+</html>

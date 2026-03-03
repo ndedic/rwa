@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <title>LV01 — CSS Selectors & Specificity</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
+    .task { background: #f5f5f5; border-left: 4px solid #666; padding: 12px 16px; margin: 24px 0 8px; }
+    .task code { background: #e0e0e0; padding: 2px 6px; }
+
+    /* ===== DO NOT MODIFY ABOVE THIS LINE ===== */
+
+    /* Write your CSS rules below each task comment. */
+
+
+    /* --- Task 1: Element selector ---
+       Make all <p> elements inside <section> have color: #444 and line-height: 1.6
+    */
+
+
+    /* --- Task 2: Class selector ---
+       Elements with class "highlight" should have background: #fff3cd and padding: 4px 8px
+    */
+
+
+    /* --- Task 3: ID selector ---
+       The element with id="main-title" should have color: #1a5276
+    */
+
+
+    /* --- Task 4: Descendant selector ---
+       All <a> elements inside the <nav> should have color: #2980b9 and no underline
+    */
+
+
+    /* --- Task 5: Child selector (>) ---
+       Only direct <li> children of ul#menu should have font-weight: bold
+       (nested <li> elements should NOT be bold)
+    */
+
+
+    /* --- Task 6: Adjacent sibling selector (+) ---
+       A <p> immediately after an <h2> should have font-size: 1.1em
+    */
+
+
+    /* --- Task 7: Pseudo-class :hover ---
+       Nav links on hover: color #e74c3c, underline appears
+    */
+
+
+    /* --- Task 8: Pseudo-class :first-child ---
+       The first <li> in ul#menu should have color: #27ae60
+    */
+
+
+    /* --- Task 9: Pseudo-element ::before ---
+       Add a "→ " before every element with class "arrow-item" using content
+    */
+
+
+    /* --- Task 10: Box model ---
+       Elements with class "card" should have:
+       padding: 16px, border: 1px solid #ddd, margin-bottom: 16px
+       Use box-sizing: border-box so width: 100% includes padding and border
+    */
+
+
+    /* --- Task 11: Specificity puzzle ---
+       Both rules below target the same element. Uncomment them.
+       Which color wins? Why? Write your answer as a comment.
+
+       section p.highlight { color: blue; }
+       p.highlight { color: red; }
+
+       Answer:
+    */
+
+  </style>
+</head>
+<body>
+
+  <h1 id="main-title">CSS Selectors & Specificity</h1>
+
+  <nav>
+    <a href="#selectors">Selectors</a> |
+    <a href="#box-model">Box Model</a> |
+    <a href="#pseudo-elements">Pseudo-elements</a>
+  </nav>
+
+  <section id="selectors">
+    <h2>Selectors</h2>
+    <p>This paragraph is inside a section.</p>
+    <p class="highlight">This paragraph has the highlight class.</p>
+    <p>Another paragraph inside the section.</p>
+
+    <h2>Lists</h2>
+    <ul id="menu">
+      <li>First item
+        <ul>
+          <li>Nested item A</li>
+          <li>Nested item B</li>
+        </ul>
+      </li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ul>
+  </section>
+
+  <section id="box-model">
+    <h2>Box Model</h2>
+    <div class="card">
+      <h3>Card One</h3>
+      <p>Content inside a card element.</p>
+    </div>
+    <div class="card">
+      <h3>Card Two</h3>
+      <p>Another card to demonstrate box model.</p>
+    </div>
+  </section>
+
+  <section id="pseudo-elements">
+    <h2>Pseudo-elements</h2>
+    <p class="arrow-item">First item with arrow</p>
+    <p class="arrow-item">Second item with arrow</p>
+    <p class="arrow-item">Third item with arrow</p>
+  </section>
+
+</body>
+</html>

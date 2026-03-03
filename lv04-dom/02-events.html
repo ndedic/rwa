@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <title>LV04 — Events</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; }
+    .example { background: #f5f5f5; border-left: 4px solid #e74c3c; padding: 12px 16px; margin: 20px 0; }
+    .box { padding: 20px; margin: 8px 0; border: 2px solid #ccc; cursor: pointer; text-align: center; }
+    #log { background: #263238; color: #a5d6a7; padding: 12px; font-family: monospace; font-size: 13px;
+           height: 200px; overflow-y: auto; white-space: pre-line; }
+    .outer { background: #e3f2fd; padding: 20px; }
+    .middle { background: #bbdefb; padding: 20px; margin: 10px; }
+    .inner { background: #90caf9; padding: 20px; margin: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>Events — Three Handler Styles + Bubbling</h1>
+
+  <!-- Section 1: Three ways to attach handlers -->
+  <div class="example">
+    <h3>1. Three ways to handle events</h3>
+  </div>
+
+  <!-- Inline handler (HTML attribute) -->
+  <div class="box" onclick="logEvent('inline handler clicked')">
+    Click me — inline handler (onclick attribute)
+  </div>
+
+  <!-- DOM property -->
+  <div class="box" id="prop-btn">
+    Click me — DOM property (element.onclick)
+  </div>
+
+  <!-- addEventListener -->
+  <div class="box" id="listener-btn">
+    Click me — addEventListener
+  </div>
+
+  <!-- Section 2: Capture and Bubbling -->
+  <div class="example">
+    <h3>2. Event propagation: capture → target → bubble</h3>
+    <p>Click the inner box and watch the log. Events travel down (capture) then back up (bubble).</p>
+  </div>
+
+  <div class="outer" id="outer">
+    OUTER
+    <div class="middle" id="middle">
+      MIDDLE
+      <div class="inner" id="inner">
+        INNER — click here
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: stopPropagation -->
+  <div class="example">
+    <h3>3. stopPropagation</h3>
+    <p>Click "INNER" above, then uncomment the stopPropagation line in the script and click again.</p>
+  </div>
+
+  <div id="log"></div>
+
+  <script>
+    const log = document.getElementById('log');
+
+    function logEvent(msg) {
+      log.textContent += msg + '\n';
+      log.scrollTop = log.scrollHeight;
+    }
+
+    // --- DOM property handler ---
+    document.getElementById('prop-btn').onclick = function () {
+      logEvent('DOM property handler clicked');
+    };
+
+    // --- addEventListener ---
+    document.getElementById('listener-btn').addEventListener('click', function () {
+      logEvent('addEventListener handler clicked');
+    });
+
+    // --- Capture and Bubbling ---
+    const phases = ['none', 'capture', 'target', 'bubble'];
+
+    ['outer', 'middle', 'inner'].forEach(function (id) {
+      const el = document.getElementById(id);
+
+      // Capture phase (third argument = true)
+      el.addEventListener('click', function (e) {
+        logEvent('CAPTURE: ' + id.toUpperCase() + ' (phase: ' + phases[e.eventPhase] + ')');
+      }, true);
+
+      // Bubble phase (third argument = false, default)
+      el.addEventListener('click', function (e) {
+        logEvent('BUBBLE:  ' + id.toUpperCase() + ' (phase: ' + phases[e.eventPhase] + ')');
+
+        // Uncomment to stop propagation at inner:
+        // if (id === 'inner') e.stopPropagation();
+      }, false);
+    });
+  </script>
+
+</body>
+</html>

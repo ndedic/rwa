@@ -1,0 +1,7 @@
+{
+  "name": "lv04-dom",
+  "private": true,
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

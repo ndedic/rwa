@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LV01 - HTTP Basics (RWA01)</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    h1 { border-bottom: 2px solid #333; padding-bottom: 8px; }
+    .task { background: #f5f5f5; border-left: 4px solid #666; padding: 12px 16px; margin: 24px 0 8px; }
+    .task code { background: #e0e0e0; padding: 2px 6px; }
+  </style>
+</head>
+<body>
+
+<h1>HTTP Basics (RWA01)</h1>
+<p>Complete these tasks using browser DevTools (F12) and the terminal. No coding - just exploration.</p>
+
+<!-- ============================================================ -->
+<div class="task">
+  <strong>Task 1: Anatomy of a URL</strong><br>
+  Break the following URL into its parts: scheme, host, port, path, query string, fragment.<br>
+  <code>https://www.example.com:8080/products/search?category=books&amp;sort=price#results</code>
+</div>
+
+<!-- ============================================================ -->
+<div class="task">
+  <strong>Task 2: HTTP request/response in DevTools</strong><br>
+  Open <code>https://jsonplaceholder.typicode.com/posts/1</code> in your browser.
+  Open DevTools &rarr; Network tab, refresh the page and find the request. Identify:
+  <ul>
+    <li>The HTTP method</li>
+    <li>The status code and message</li>
+    <li>The Content-Type header from the response</li>
+    <li>The response size (Size column)</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<div class="task">
+  <strong>Task 3: curl from the terminal</strong><br>
+  Run in your terminal:<br>
+  <code>curl -v https://jsonplaceholder.typicode.com/posts/1</code><br><br>
+  Identify in the output:
+  <ul>
+    <li>The request line (method, path, protocol version)</li>
+    <li>The response status line</li>
+    <li>Where do the headers end and the body begin?</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<div class="task">
+  <strong>Task 4: HTTP status codes</strong><br>
+  Visit each of the following URLs and note the status code (use the Network tab):
+  <ul>
+    <li><code>https://httpstat.us/200</code></li>
+    <li><code>https://httpstat.us/301</code></li>
+    <li><code>https://httpstat.us/404</code></li>
+    <li><code>https://httpstat.us/500</code></li>
+  </ul>
+  For each code, explain what it means.
+</div>
+
+<!-- ============================================================ -->
+<div class="task">
+  <strong>Task 5: HTTP is stateless</strong><br>
+  Run these two commands in your terminal, one after the other:<br><br>
+  <code>curl -X POST https://httpbin.org/post -d "name=Alice"</code><br>
+  <code>curl https://httpbin.org/get</code><br><br>
+  Does the second response contain any trace of "name=Alice"?
+  Why not? What does this tell you about how HTTP works?
+</div>
+
+<!-- ============================================================ -->
+<div class="task">
+  <strong>Task 6: GET vs POST</strong><br>
+  Enter something in the field below and click each button.
+  Watch the Network tab - what is the difference between the GET and POST requests?
+  Where is the submitted data in each case?
+</div>
+
+<form action="https://httpbin.org/get" method="GET" target="_blank" style="margin: 12px 0;">
+  <input type="text" name="q" placeholder="Enter some text...">
+  <button type="submit">GET</button>
+</form>
+<form action="https://httpbin.org/post" method="POST" target="_blank" style="margin: 12px 0;">
+  <input type="text" name="q" placeholder="Enter some text...">
+  <button type="submit">POST</button>
+</form>
+
+</body>
+</html>

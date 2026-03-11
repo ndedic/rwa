@@ -15,11 +15,12 @@ Open http://localhost:3000 in your browser.
 
 ### Exercises
 
-1. **01-selectors.html** — Pre-built page with 11 CSS tasks. Each task asks you to write a specific CSS rule (element, class, ID, descendant, child, adjacent, pseudo-class, pseudo-element, box model, specificity). Open the file, read each task comment, write the rule, and verify in the browser.
+1. **00-http-basics.html** — Hands-on exploration of HTTP using browser DevTools and curl. URL anatomy, request/response inspection, status codes, GET vs POST.
+2. **01-selectors.html** — Pre-built page with 11 CSS tasks. Each task asks you to write a specific CSS rule (element, class, ID, descendant, child, adjacent, pseudo-class, pseudo-element, box model, specificity). Open the file, read each task comment, write the rule, and verify in the browser.
 
 ### Assignment (15–20 min)
 
-Open **00-assignment.html**. It contains instructions as an HTML comment. Build a complete page from scratch:
+Open **assignment.html**. It contains instructions as an HTML comment. Build a complete page from scratch:
 
 1. Valid HTML5 structure: `DOCTYPE`, `<html lang>`, `<head>` with charset and title, `<body>`
 2. Link `style.css` in the head

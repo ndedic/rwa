@@ -2,7 +2,7 @@
   "name": "lv02-js-basics",
   "private": true,
   "scripts": {
-    "assignment": "node 00-assignment.js",
+    "assignment": "node assignment.js",
     "types": "node 01-types.js",
     "arrays": "node 02-arrays.js",
     "functions": "node 03-functions.js",

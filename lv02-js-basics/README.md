@@ -18,7 +18,7 @@ npm run scope          # run 07-scope.js
 npm run objects        # run 08-objects.js
 npm run let-const      # run 09-let-const.js
 npm run for-in-of      # run 10-for-in-of.js
-npm run assignment     # run 00-assignment.js
+npm run assignment     # run assignment.js
 ```
 
 ### Exercises
@@ -38,7 +38,7 @@ Each file has two parts: Part 1 uses `var` and ES5 syntax, Part 2 shows the mode
 
 ### Assignment (15–20 min)
 
-Open **00-assignment.js**. Write a function `summarize(arr)` that:
+Open **assignment.js**. Write a function `summarize(arr)` that:
 - Takes an array of mixed values
 - Returns an object `{ numbers: N, strings: N, booleans: N }` with counts of each type
 - Uses `typeof`, a `for` loop, and an object literal

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CGI — Calculator</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 480px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+    h2 { border-bottom: 2px solid #2563eb; padding-bottom: .5rem; }
+    label { display: block; margin-bottom: .5rem; font-weight: 500; }
+    input[type="text"], input[type="number"] { width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
+    select { width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
+    button { margin-top: 1rem; padding: .5rem 1.5rem; background: #2563eb; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    p.note { color: #666; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <h2>Calculator (GET)</h2>
+  <p class="note">Sends two numbers and an operator via <code>QUERY_STRING</code>. The C program URL-decodes the <code>+</code> operator.</p>
+  <form action="cgi-bin/calculate" method="GET">
+    <label>Number 1: <input type="text" name="m" required></label>
+    <label>Operation:
+      <select name="o">
+        <option value="+">+</option>
+        <option value="-">−</option>
+        <option value="/">/</option>
+        <option value="*">×</option>
+      </select>
+    </label>
+    <label>Number 2: <input type="text" name="n" required></label>
+    <button type="submit">Calculate</button>
+  </form>
+</body>
+</html>

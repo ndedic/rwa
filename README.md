@@ -20,7 +20,7 @@ Lab exercises for the Web Application Development course at the [Faculty of Elec
 | 03 | [lv03-js-advanced](lv03-js-advanced/) | JavaScript - OOP, prototypes, inheritance, closures, ES6 classes | RWA04 |
 | 04 | [lv04-dom](lv04-dom/) | DOM - traversal, createElement, events, capture/bubbling | RWA05 |
 | 05 | [lv05-async-ajax](lv05-async-ajax/) | Async JS + AJAX - callbacks, promises, async/await, Fetch API | RWA03/05 |
-| 06 | lv06-cgi | CGI - C programs, QUERY_STRING, HTML forms | RWA06 |
+| 06 | [lv06-cgi](lv06-cgi/) | CGI - C programs, QUERY_STRING, HTML forms | RWA06 |
 | 07 | lv07-servlets | Java Servlets - lifecycle, doGet/doPost, annotations | RWA07 |
 | 08 | lv08-cookies-sessions | Cookies + Sessions - HTTP statelessness, persistence | RWA08 |
 | 09 | lv09-jsp-blog | JSP - expressions, blog application, JPA | RWA09 |

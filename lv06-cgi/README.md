@@ -19,6 +19,7 @@ lv06-cgi/
     printval.c                POST: prints REQUEST_METHOD, QUERY_STRING, and post body
     calculator.c              GET: two numbers + operator, URL-decodes, calculates
     todo-api.c                GET: returns a hardcoded JSON array of todo items
+    assignment.c              ← YOUR ASSIGNMENT: parse name + age, output greeting
   WEB-INF/
     web.xml                ← configures Tomcat's CGIServlet
     cgi/                   ← compiled binaries go here (Tomcat reads from this folder)
@@ -28,6 +29,7 @@ lv06-cgi/
   square.html              ← HTML form → POST → cgi-bin/square
   calculator.html          ← HTML form → GET → cgi-bin/calculate
   cgi-client.html          ← AJAX (XHR) → cgi-bin/todo-api → renders JSON
+  assignment.html          ← HTML form for the assignment
 ```
 
 ### Prerequisites
@@ -177,6 +179,23 @@ Browser                    Tomcat (CGIServlet)              C program
 5. **printval.c** — Hit it with both GET and POST (use the browser or `curl`). Compare what `REQUEST_METHOD`, `QUERY_STRING`, and the post body look like.
 6. **calculator.html → calculator.c** — The `+` operator gets URL-encoded as `%2B`. The C program includes a URL decoder. Try all four operations.
 7. **cgi-client.html → todo-api.c** — Click "Load Todos". The JavaScript makes an XHR request to a C program that returns JSON. Open DevTools → Network tab to see the raw response.
+
+### Assignment (15–20 min)
+
+Open **cgi-source/assignment.c**. Write a CGI program that:
+
+1. Reads two GET parameters from `QUERY_STRING`: `name` and `age` (e.g. `?name=Ana&age=21`)
+2. Parses them with `sscanf`
+3. Outputs a valid HTML page with `Content-type: text/html` that says:
+   ```
+   Hello, Ana! You are 21 years old.
+   In 10 years you will be 31.
+   ```
+4. If the parameters are missing or invalid, print an error message instead
+
+Then:
+- Compile it: `clang -o WEB-INF/cgi/assignment cgi-source/assignment.c`
+- Open **assignment.html** in the browser, fill in the form, and verify the output
 
 ### Troubleshooting
 

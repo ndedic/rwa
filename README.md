@@ -21,12 +21,11 @@ Lab exercises for the Web Application Development course at the [Faculty of Elec
 | 04 | [lv04-dom](lv04-dom/) | DOM - traversal, createElement, events, capture/bubbling | RWA05 |
 | 05 | [lv05-async-ajax](lv05-async-ajax/) | Async JS + AJAX - callbacks, promises, async/await, Fetch API | RWA03/05 |
 | 06 | [lv06-cgi](lv06-cgi/) | CGI - C programs, QUERY_STRING, HTML forms | RWA06 |
-| 07 | lv07-servlets | Java Servlets - lifecycle, doGet/doPost, annotations | RWA07 |
-| 08 | lv08-cookies-sessions | Cookies + Sessions - HTTP statelessness, persistence | RWA08 |
-| 09 | lv09-jsp-blog | JSP - expressions, blog application, JPA | RWA09 |
-| 10 | lv10-filters | Filters - servlet filters, authentication, RequestDispatcher | RWA10 |
-| 11 | lv11-rest | MVC + REST API - Jersey, JSON, AJAX client | RWA11 |
-| 12 | lv12-websockets | WebSockets - real-time chat, Java server endpoint | RWA12 |
+| 07 | [lv07-servlets](lv07-servlets/) | Java Servlets - lifecycle, doGet/doPost, Cookies, Sessions | RWA07 |
+| 08 | [lv08-jsp](lv08-jsp/) | JSP - JSTL, MVC pattern, JPA/Hibernate, blog application | RWA08 |
+| 09 | [lv09-filters](lv09-filters/) | Filters - authentication, BCrypt, session security | RWA09 |
+| 10 | lv10-rest | REST API - Jersey/JAX-RS, JSON, AJAX client | RWA10 |
+| 11 | lv11-websockets | WebSockets - real-time chat, Java server endpoint | RWA11 |
 
 ## How to Use
 

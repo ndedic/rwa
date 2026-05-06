@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Servlet App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .servlet-list {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .servlet-list h2 {
+            margin-top: 0;
+        }
+        .servlet-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .servlet-list li {
+            margin-bottom: 10px;
+        }
+        .servlet-list a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        .servlet-list a:hover {
+            text-decoration: underline;
+        }
+        .description {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Hello Servlet App</h1>
+    
+    <p>This application demonstrates various servlet features including basic HTML output, cookies, sessions, and JSON APIs.</p>
+    
+    <div class="servlet-list">
+        <h2>Available Servlets:</h2>
+        <ul>
+            <li>
+                <a href="hello">Hello World Servlet</a>
+                <div class="description">Basic servlet that outputs HTML content</div>
+            </li>
+            <li>
+                <a href="HelloCookie">Cookie Demo</a>
+                <div class="description">Demonstrates storing and retrieving data using cookies</div>
+            </li>
+            <li>
+                <a href="HelloCookieFinal">Cookie Demo (Complete)</a>
+                <div class="description">Full implementation of cookie handling with form</div>
+            </li>
+            <li>
+                <a href="HelloSession">Session Demo</a>
+                <div class="description">Demonstrates storing and retrieving data using HTTP sessions</div>
+            </li>
+            <li>
+                <a href="HelloSessionFinal">Session Demo (Complete)</a>
+                <div class="description">Full implementation of session handling with form</div>
+            </li>
+            <li>
+                <a href="todo-api">Todo API</a>
+                <div class="description">Returns a JSON list of todo items (view source to see JSON)</div>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="servlet-list">
+        <h2>API Documentation:</h2>
+        <ul>
+            <li>
+                <strong>GET /todo-api</strong>
+                <div class="description">Returns a list of 10 programming-related todo items as JSON</div>
+                <div class="description">Example response format:</div>
+                <pre style="background-color: #eee; padding: 10px; overflow-x: auto;">
+[
+  {"text":"Implement user authentication system","checked":false},
+  {"text":"Fix cross-browser compatibility issues","checked":true}
+]</pre>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

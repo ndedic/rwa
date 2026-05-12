@@ -33,8 +33,34 @@ The app auto-creates the database (`blogdb`) on first run. Update credentials in
 
 ```xml
 <property name="jakarta.persistence.jdbc.user" value="root"/>
-<property name="jakarta.persistence.jdbc.password" value="password"/>
+<property name="jakarta.persistence.jdbc.password" value="YOUR_MYSQL_PASSWORD"/>
 ```
+
+Replace `YOUR_MYSQL_PASSWORD` with your actual MySQL root password.
+
+### How to Run
+
+```bash
+cd lv08-jsp
+
+# 1. Make sure MySQL is running
+brew services start mysql   # macOS
+sudo systemctl start mysql  # Linux
+
+# 2. Update your MySQL password in:
+#    src/main/resources/META-INF/persistence.xml
+
+# 3. Build the project
+gradle build
+
+# 4. Generate sample data (optional)
+gradle generateBlogData
+
+# 5. Run the web app
+gradle appRun
+```
+
+Open http://localhost:8080/blog
 
 ### Project Structure
 
@@ -60,23 +86,6 @@ lv08-jsp/
       view-blog.jsp               ← single entry view
       create-blog.jsp             ← form to create new entry
 ```
-
-### How to Run
-
-```bash
-cd lv08-jsp
-
-# 1. Build
-gradle build
-
-# 2. Generate sample data (optional, requires MySQL running)
-gradle generateBlogData
-
-# 3. Run the web app
-gradle appRun
-```
-
-Open http://localhost:8080/blog
 
 ### How MVC Works with Servlets + JSP
 

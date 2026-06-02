@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat</title>
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <div class="container">
+        <h1>WebSocket Chat</h1>
+        <p class="note">Real-time messaging using Jakarta WebSocket API — messages are broadcast to all connected clients</p>
+        <div id="chat-container">
+            <div id="status">Connecting...</div>
+            <div id="conversation"></div>
+            <div id="message">
+                <input id="text" type="text" placeholder="Type your message...">
+                <button id="send">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/chat.js"></script>
+</body>
+</html>

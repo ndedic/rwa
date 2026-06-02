@@ -24,8 +24,8 @@ Lab exercises for the Web Application Development course at the [Faculty of Elec
 | 07 | [lv07-servlets](lv07-servlets/) | Java Servlets - lifecycle, doGet/doPost, Cookies, Sessions | RWA07 |
 | 08 | [lv08-jsp](lv08-jsp/) | JSP - JSTL, MVC pattern, JPA/Hibernate, blog application | RWA08 |
 | 09 | [lv09-filters](lv09-filters/) | Filters - authentication, BCrypt, session security | RWA09 |
-| 10 | lv10-rest | REST API - Jersey/JAX-RS, JSON, AJAX client | RWA10 |
-| 11 | lv11-websockets | WebSockets - real-time chat, Java server endpoint | RWA11 |
+| 10 | [lv10-rest-api](lv10-rest-api/) | REST API - Jersey/JAX-RS, JSON, fetch SPA, CRUD | RWA10 |
+| 11 | [lv11-websockets](lv11-websockets/) | WebSockets - real-time chat, @ServerEndpoint, Encoder/Decoder | RWA11 |
 
 ## How to Use
 

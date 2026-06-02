@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.gretty' version '5.0.1'
+}
+
+group = 'ba.fet.rwa'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = '23'
+    targetCompatibility = '23'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Jakarta EE 10 APIs for Tomcat 10
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    compileOnly 'jakarta.websocket:jakarta.websocket-api:2.1.1'
+    compileOnly 'jakarta.websocket:jakarta.websocket-client-api:2.1.1'
+
+    // Gson for JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+gretty {
+    httpPort = 8080
+    contextPath = '/websockets'
+    servletContainer = 'tomcat10'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
